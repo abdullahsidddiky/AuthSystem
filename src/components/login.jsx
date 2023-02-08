@@ -1,23 +1,24 @@
 import React from "react";
-import { useState, } from "react";
-import { Navigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 import AuthUser from "./authUser";
 function Login() {
+  const navigate = useNavigate();
   const { http } = AuthUser();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [user, getUser] = useState();
-  const [isCleared, setIsCleared] = useState(true);
+  // const [user, getUser] = useState();
+  //const [isCleared, setIsCleared] = useState(true);
   const submitForm = () => {
     http.post('/login', { email: email, password: password }).then((res) => {
       if (res.data.user) {
         sessionStorage.setItem("user", JSON.stringify(res.data.user));
-
       }
 
 
 
     });
+
   }
 
 
