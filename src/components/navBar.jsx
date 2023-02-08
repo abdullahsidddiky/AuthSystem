@@ -7,12 +7,13 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Dashboard from "./dashboard";
 import Home from "./home";
 import Login from "./login";
-import { UserContext } from './userContext';
-import { useContext, useState, } from 'react';
+
 function NavBar() {
-  const [value, setValue] = useState('dsaf');
+
 
   const element = <>
+
+
 
     <Navbar bg="dark" variant="dark">
       <Container>
@@ -27,15 +28,15 @@ function NavBar() {
       </Container>
     </Navbar>
     <div className="container">
+
       <Router>
-        <UserContext.Provider value={{ value, setValue }}>
-          <Routes>
-            <Route path="/home" element={<Home />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/login" element={<Login />} />
-          </Routes>
-        </UserContext.Provider>
+        <Routes>
+          <Route path="/home" element={<Home />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
       </Router>
+
     </div>
 
   </>

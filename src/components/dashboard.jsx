@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import { UserContext } from "./userContext";
-import { useContext } from "react";
-function Dashboard() {
-  const { value, setValue } = useContext(UserContext);
+
+const Dashboard = () => {
 
   return (<div>
-    <h1>dashboard {value} </h1>
-    <button onClick={() => { setValue('vasdf') }}>button</button>
+    <h1>dashboard </h1>
+
   </div >
   )
 }

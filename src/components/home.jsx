@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { UserContext } from "./userContext";
-import { useContext } from "react";
+
 function Home() {
-  const { value } = useContext(UserContext);
-  return (<h1>Home {value}</h1>)
+
+
+  return (<div>
+    <h1>Home  </h1>
+
+  </div>)
 }
 export default Home;
