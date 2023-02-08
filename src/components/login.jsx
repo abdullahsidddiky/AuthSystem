@@ -10,7 +10,6 @@ function Login() {
   const submitForm = () => {
     http.post('/login', { email: email, password: password }).then((res) => {
       if (res.data.user) {
-        console.log(res.data.user);
         sessionStorage.setItem("user", JSON.stringify(res.data.user));
 
       }

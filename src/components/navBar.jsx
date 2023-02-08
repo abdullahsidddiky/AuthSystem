@@ -7,14 +7,12 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Dashboard from "./dashboard";
 import Home from "./home";
 import Login from "./login";
+import Logout from './logout';
+import { useContext } from 'react';
+import { UserContext } from './userContext';
 
 function NavBar() {
-
-
   const element = <>
-
-
-
     <Navbar bg="dark" variant="dark">
       <Container>
 
@@ -22,6 +20,7 @@ function NavBar() {
           <Nav.Link href="/home">Home</Nav.Link>
           <Nav.Link href="/dashboard">Dashboard</Nav.Link>
           <Nav.Link href="/login">Login</Nav.Link>
+          <Nav.Link href="/logout">Logout</Nav.Link>
         </Nav>
 
 
@@ -33,7 +32,12 @@ function NavBar() {
         <Routes>
           <Route path="/home" element={<Home />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/login" element={<Login />} />
+          if(sessionStorage.getItem==NULL){
+            <Route path="/login" element={<Login />} />
+          }
+          else{
+            <Route path="/logout" element={<Logout />} />
+          }
         </Routes>
       </Router>
 
