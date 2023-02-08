@@ -17,6 +17,13 @@ function Login() {
 
 
 
+      navigate("/profile");
+      window.location.reload();
+
+
+
+
+
     });
 
   }
