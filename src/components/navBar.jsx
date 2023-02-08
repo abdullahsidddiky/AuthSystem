@@ -11,36 +11,29 @@ import Logout from './logout';
 import { useContext } from 'react';
 import { UserContext } from './userContext';
 
-function NavBar() {
+function NavBar({ isLoggedIn }) {
   const element = <>
     <Navbar bg="dark" variant="dark">
       <Container>
-
         <Nav className="me-auto">
           <Nav.Link href="/home">Home</Nav.Link>
           <Nav.Link href="/dashboard">Dashboard</Nav.Link>
-          <Nav.Link href="/login">Login</Nav.Link>
-          <Nav.Link href="/logout">Logout</Nav.Link>
+          {!isLoggedIn && <Nav.Link href="/login">Login</Nav.Link>}
+          {isLoggedIn && <Nav.Link href="/logout">Logout</Nav.Link>}
+
+
         </Nav>
-
-
       </Container>
     </Navbar>
     <div className="container">
-
       <Router>
         <Routes>
           <Route path="/home" element={<Home />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          if(sessionStorage.getItem==NULL){
-            <Route path="/login" element={<Login />} />
-          }
-          else{
-            <Route path="/logout" element={<Logout />} />
-          }
+          <Route path="/login" element={<Login />} />
+          <Route path="/logout" element={<Logout />} />
         </Routes>
       </Router>
-
     </div>
 
   </>

@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, } from "react";
+import { Navigate } from "react-router-dom";
 import AuthUser from "./authUser";
 function Login() {
   const { http } = AuthUser();
