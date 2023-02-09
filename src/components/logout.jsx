@@ -7,7 +7,7 @@ function Logout() {
 
   useEffect(() => {
 
-    navigate("/profile");
+    navigate("/");
     window.location.reload();
 
   });

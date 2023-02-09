@@ -9,14 +9,14 @@ import Profile from "./profile";
 import Login from "./login";
 import Logout from './logout';
 
-
 function NavBar({ isLoggedIn }) {
   const element = <>
     <Navbar bg="dark" variant="dark">
       <Container>
         <Nav className="me-auto">
-          <Nav.Link href="/profile">Profile</Nav.Link>
-          <Nav.Link href="/dashboard">Dashboard</Nav.Link>
+
+          {isLoggedIn && <Nav.Link href="/profile">Profile</Nav.Link>}
+          {isLoggedIn && <Nav.Link href="/dashboard">Dashboard</Nav.Link>}
           {!isLoggedIn && <Nav.Link href="/login">Login</Nav.Link>}
           {isLoggedIn && <Nav.Link href="/logout">Logout</Nav.Link>}
 
