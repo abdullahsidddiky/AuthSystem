@@ -24,9 +24,6 @@ class userController extends Controller
     return "user registered";
    }
    return "error found";
-
-
-  
  }
  public function login(Request $request){
 
@@ -50,5 +47,8 @@ class userController extends Controller
       ]);
    }      
 }
-
+public function delete(Request $request){
+   $user = DB::table('users')->where('email',$request->email)->first();
+   $user->delete();
+}
 }
