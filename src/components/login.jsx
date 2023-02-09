@@ -14,22 +14,10 @@ function Login() {
       if (res.data.user) {
         sessionStorage.setItem("user", JSON.stringify(res.data.user));
       }
-
-
-
       navigate("/profile");
       window.location.reload();
-
-
-
-
-
     });
-
   }
-
-
-
   const element = (
     <div className="row justify-content-center pt-5">
       <div className="col-sm-6">
@@ -44,7 +32,7 @@ function Login() {
             <input type="password" className="form-control" placeholder="Enter password"
               id="password" onChange={e => setPassword(e.target.value)} />
           </div>
-          <button type="button" className="btn btn-primary mt-3" onClick={submitForm}>Submit</button> <span><a href="">Sign Up</a></span>
+          <button type="button" className="btn btn-primary mt-3" onClick={submitForm}>Submit</button> <span><a href="/signup">Sign Up</a></span>
 
 
         </div>

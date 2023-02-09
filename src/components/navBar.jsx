@@ -8,6 +8,7 @@ import Dashboard from "./dashboard";
 import Profile from "./profile";
 import Login from "./login";
 import Logout from './logout';
+import SignUp from './signup';
 
 function NavBar({ isLoggedIn }) {
   const element = <>
@@ -31,6 +32,7 @@ function NavBar({ isLoggedIn }) {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<Logout />} />
+          <Route path="/signup" element={<SignUp />} />
         </Routes>
       </Router>
     </div>
