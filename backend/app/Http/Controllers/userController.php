@@ -10,13 +10,20 @@ class userController extends Controller
 {
     //
  public function register(Request $request){
+   $validated = $request->validate([
+      'email'=>'required|email|unique:users,email',
+      'name'=>'required',
+      'password'=>'required',
+   ]);
+   if($validated){
     $user = new User;
     $user->name = $request->name;
     $user->password = Hash::make($request->password);
     $user->email = $request->email;
     $user->save();
-    return $user;
-
+    return "user registered";
+   }
+   return "error found";
 
 
   

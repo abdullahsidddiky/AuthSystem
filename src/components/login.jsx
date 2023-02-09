@@ -32,7 +32,7 @@ function Login() {
             <input type="password" className="form-control" placeholder="Enter password"
               id="password" onChange={e => setPassword(e.target.value)} />
           </div>
-          <button type="button" className="btn btn-primary mt-3" onClick={submitForm}>Submit</button> <span><a href="/signup">Sign Up</a></span>
+          <button type="button" className="btn btn-primary mt-3" onClick={submitForm}>Submit</button> <span><a href="/register">Sign Up</a></span>
 
 
         </div>
