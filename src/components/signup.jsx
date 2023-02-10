@@ -1,14 +1,18 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import AuthUser from "./authUser";
 
 function SignUp() {
   const { http } = AuthUser();
+  const navigate = useNavigate();
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const submitForm = () => {
     http.post('/register', { name: name, email: email, password: password }).then((res) => {
-      alert("res");
+      //navigate('/');
+      alert("user signed up");
+      window.location.replace('/');
     });
   }
   const element = (

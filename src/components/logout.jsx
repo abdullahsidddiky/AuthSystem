@@ -2,16 +2,9 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 function Logout() {
   const navigate = useNavigate();
-
   sessionStorage.clear("user");
-
   useEffect(() => {
-
-    navigate("/");
-    window.location.reload();
-
+    window.location.replace("/");
   });
-
-
 }
 export default Logout;

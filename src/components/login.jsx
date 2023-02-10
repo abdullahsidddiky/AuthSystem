@@ -12,8 +12,7 @@ function Login() {
     http.post('/login', { email: email, password: password }).then((res) => {
       if (res.data.user) {
         sessionStorage.setItem("user", JSON.stringify(res.data.user));
-        navigate("/profile");
-        window.location.reload();
+        window.location.replace("/");
       }
       else {
         alert("No match fournd");

@@ -6,16 +6,15 @@ import AuthUser from "./authUser";
 import { useNavigate } from "react-router-dom";
 function Profile() {
   const navigate = useNavigate();
-  const [account, setAccount] = useState(false);
-  const [update, setUpdate] = useState(false);
+
   const varr = sessionStorage.getItem("user");
   const [email, setEmail] = useState();
   const varrr = JSON.parse(varr);
   const { http } = AuthUser();
   const deleteUser = () => {
-    http.post('/delete', { email: email }).then((res) => {
-      navigate("/");
-      window.location.reload();
+    http.delete('/delete', { email: email }).then((res) => {
+      sessionStorage.clear("user");
+      window.location.replace("/");
       alert("User account deleted");
     });
   }
