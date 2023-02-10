@@ -48,7 +48,8 @@ class userController extends Controller
    }      
 }
 public function delete(Request $request){
-   $user = DB::table('users')->where('email',$request->email)->first();
+   $user= DB::table('users')->where('email',$request->email);
    $user->delete();
+   return "user deleted";
 }
 }

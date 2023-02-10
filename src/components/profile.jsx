@@ -27,7 +27,7 @@ function Profile() {
           <Card.Text>
             {varrr.name}
           </Card.Text>
-          <span><Button variant="primary">Delete Account</Button></span>
+          <span><Button variant="danger" onClick={deleteUser}>Delete Account</Button></span>
           <span><Button variant="primary">Change Password</Button></span>
         </Card.Body >
       </Card >
