@@ -4,9 +4,8 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import AuthUser from "./authUser";
 import { useNavigate } from "react-router-dom";
+import Update from "./updateInfo";
 function Profile() {
-  const navigate = useNavigate();
-
   const varr = sessionStorage.getItem("user");
   const [email, setEmail] = useState();
   const varrr = JSON.parse(varr);
@@ -27,7 +26,8 @@ function Profile() {
             {varrr.name}
           </Card.Text>
           <span><Button variant="danger" onClick={deleteUser}>Delete Account</Button></span>
-          <span><Button variant="primary">Change Password</Button></span>
+          <a href="/update"><Button variant="primary" >Update Profile</Button></a>
+
         </Card.Body >
       </Card >
     </div >

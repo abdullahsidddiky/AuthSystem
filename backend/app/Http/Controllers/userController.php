@@ -51,5 +51,13 @@ public function delete(Request $request){
    $user= DB::table('users')->where('email',$request->email);
    $user->delete();
    return "user deleted";
+  // return $user;
+}
+public function update(Request $request){
+   $user =User::where('id',$request->id)->first();
+   $user->name= $request->name;
+   $user->email= $request->email;
+   $user->save();
+   return ("update success");
 }
 }

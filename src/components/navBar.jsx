@@ -9,6 +9,7 @@ import Profile from "./profile";
 import Login from "./login";
 import Logout from './logout';
 import SignUp from './signup';
+import Update from './updateInfo';
 
 function NavBar({ isLoggedIn }) {
   const element = <>
@@ -33,6 +34,7 @@ function NavBar({ isLoggedIn }) {
           <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/register" element={<SignUp />} />
+          <Route path="/update" element={< Update />} />
         </Routes>
       </Router>
     </div>
