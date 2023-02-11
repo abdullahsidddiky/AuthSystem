@@ -7,19 +7,17 @@ function Update() {
   const { http } = AuthUser();
   const jsoninfo = JSON.parse(sessionStorage.getItem("user"));
   const [id] = useState(jsoninfo.id);
-  const [name, setName] = useState(jsoninfo.name);
-  const [email, setEmail] = useState(jsoninfo.email);
-  const [password, setPassword] = useState(jsoninfo.password);
+  const [name, setName] = useState(JSON.stringify(jsoninfo.name));
+  const [email, setEmail] = useState(JSON.stringify(jsoninfo.email));
+
 
   const updateForm = () => {
-    console.log(jsoninfo.id);
+
     http.put('/update', { id: id, name: name, email: email }).then((res) => {
       console.log(res.data);
       sessionStorage.clear("user");
-      sessionStorage.setItem("user", JSON.stringify(res.data));
+      sessionStorage.setItem("user", JSON.stringify(res.data.user));
       window.location.replace("/profile");
-
-
     });
   }
   const element = (
