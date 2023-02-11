@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState, } from "react";
 import AuthUser from "./authUser";
 import Login from "./login";
@@ -6,20 +6,22 @@ import Login from "./login";
 function Update() {
   const { http } = AuthUser();
   const jsoninfo = JSON.parse(sessionStorage.getItem("user"));
-  const [id, setId] = useState(jsoninfo.id);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [id] = useState(jsoninfo.id);
+  const [name, setName] = useState(jsoninfo.name);
+  const [email, setEmail] = useState(jsoninfo.email);
+  const [password, setPassword] = useState(jsoninfo.password);
 
   const updateForm = () => {
-    http.put('/update', { name: name, email: email, password: password }).then((res) => {
-      /*if (res.data.user) {
+
+    http.put('/update', { id: id, name: name, email: email, password: password }).then((res) => {
+      if (res.data.user) {
+        sessionStorage.clear("user");
         sessionStorage.setItem("user", JSON.stringify(res.data.user));
         window.location.replace("/profile");
       }
       else {
         alert("No match fournd");
-      }*/
+      }
       console.log(res);
     });
   }
