@@ -7,21 +7,18 @@ function Update() {
   const { http } = AuthUser();
   const jsoninfo = JSON.parse(sessionStorage.getItem("user"));
   const [id] = useState(jsoninfo.id);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [name, setName] = useState(jsoninfo.name);
+  const [email, setEmail] = useState(jsoninfo.email);
+  const [password, setPassword] = useState(jsoninfo.password);
 
   const updateForm = () => {
     console.log(jsoninfo.id);
-    http.put('/update', { id: id, name: name, email: email, password: password }).then((res) => {
-      if (res.data.user) {
-        sessionStorage.clear("user");
-        sessionStorage.setItem("user", JSON.stringify(res.data.user));
-        window.location.replace("/profile");
-      }
-      else {
-        alert("No match fournd");
-      }
+    http.put('/update', { id: id, name: name, email: email }).then((res) => {
+      console.log(res.data);
+      sessionStorage.clear("user");
+      sessionStorage.setItem("user", JSON.stringify(res.data));
+      window.location.replace("/profile");
+
 
     });
   }
@@ -38,11 +35,6 @@ function Update() {
             <label htmlFor="email">Email</label>
             <input type="email" className="form-control" placeholder="Enter email" id="email"
               onChange={e => setEmail(e.target.value)} />
-          </div>
-          <div className="form-group mt-3">
-            <label htmlFor="password">Password</label>
-            <input type="password" className="form-control" placeholder="Enter password"
-              id="password" onChange={e => setPassword(e.target.value)} />
           </div>
           <button type="button" className="btn btn-primary mt-3" onClick={updateForm}>Submit</button>
         </div>
