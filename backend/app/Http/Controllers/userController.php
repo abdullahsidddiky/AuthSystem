@@ -53,12 +53,12 @@ public function delete(Request $request){
    return "user deleted";
   // return $user;
 }
-public function update(Request $request){
+public function update(Request $request,){
    $user =User::where('id',$request->id)->first();
-   $user->name= $request->name;
+  /* $user->name= $request->name;
    $user->email= $request->email;
    $user->password=Hash::make($request->password);
-   $user->save();
+   $user->save();*/
    return ("update success");
 }
 }
