@@ -8,7 +8,7 @@ function Update() {
   const jsoninfo = JSON.parse(sessionStorage.getItem("user"));
   const [id] = useState(jsoninfo.id);
   const [name, setName] = useState(JSON.stringify(jsoninfo.name));
-  const [email, setEmail] = useState(JSON.stringify(jsoninfo.email));
+  //const [email, setEmail] = useState(JSON.stringify(jsoninfo.email));
 
 
   const updateForm = () => {
